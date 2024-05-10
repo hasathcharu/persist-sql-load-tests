@@ -1,0 +1,3 @@
+resources:
+  - load_tests_mysql.yaml
+  - mysql_deployment.yml

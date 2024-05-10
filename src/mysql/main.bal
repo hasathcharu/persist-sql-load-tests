@@ -24,12 +24,18 @@ import ballerina/sql;
 import ballerinax/mysql;
 import ballerinax/mysql.driver as _;
 
+configurable string host = ?;
+configurable string username = ?;
+configurable string password = ?;
+configurable string database = ?;
+configurable int port = ?;
+
 service / on new http:Listener(9090) {
     
     private final mysql:Client dbClient;
 
     function init() returns error? {
-        self.dbClient = check new ("localhost", "root", "Test123#", "hospital", 3300);
+        self.dbClient = check new (host, username, password, database, port);
     }
 
     isolated resource function get insert\-doctors() returns http:InternalServerError & readonly|http:Created & readonly|http:Conflict & readonly|error {

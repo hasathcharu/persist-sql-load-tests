@@ -1,6 +1,6 @@
 [package]
 org = "haritha"
-name = "mysql"
+name = "load_tests_mysql"
 version = "0.1.0"
 distribution = "2201.9.0"
 

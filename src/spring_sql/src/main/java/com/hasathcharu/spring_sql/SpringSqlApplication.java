@@ -1,5 +1,9 @@
 package com.hasathcharu.spring_sql;
 
+import com.hasathcharu.spring_sql.repository.DoctorRepository;
+import com.hasathcharu.spring_sql.repository.PatientRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

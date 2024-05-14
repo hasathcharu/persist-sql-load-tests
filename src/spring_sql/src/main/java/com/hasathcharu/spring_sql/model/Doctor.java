@@ -35,6 +35,4 @@ public class Doctor {
     private String phoneNumber;
     @Column(columnDefinition = "DECIMAL(10,2)")
     private double salary;
-    @OneToMany(mappedBy = "doctor")
-    private List<Appointment> appointments;
 }

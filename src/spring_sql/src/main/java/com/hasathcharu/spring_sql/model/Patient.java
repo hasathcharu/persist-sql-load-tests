@@ -32,6 +32,4 @@ public class Patient {
     @Column(columnDefinition="CHAR(10)")
     private String phoneNumber;
     private Gender gender;
-    @OneToMany(mappedBy = "patient")
-    private List<Appointment> appointments;
 }

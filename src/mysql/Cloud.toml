@@ -1,6 +1,6 @@
 [container.image]
-repository = "hasathcharuwso2"
-name = "load_tests"
+repository = "hasathcharu"
+name = "balpersist_load_tests"
 tag = "mysql_v1"
 
 [cloud.deployment]

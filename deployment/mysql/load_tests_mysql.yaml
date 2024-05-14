@@ -43,7 +43,7 @@ spec:
       - env:
         - name: "BAL_CONFIG_FILES"
           value: "/home/ballerina/conf/Config.toml:"
-        image: "hasathcharuwso2/load_tests:mysql_v1"
+        image: "hasathcharu/balpersist_load_tests:mysql_v1"
         lifecycle:
           preStop:
             exec:

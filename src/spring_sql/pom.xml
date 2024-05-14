@@ -77,7 +77,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>hasathcharuwso2/load_tests</image>
+						<image>hasathcharu/balpersist_load_tests</image>
 						<tags>
 							<tag>springboot_v1</tag>
 						</tags>

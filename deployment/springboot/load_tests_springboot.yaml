@@ -40,7 +40,7 @@ spec:
       - env:
         - name: "SQL_URL"
           value: "jdbc:mysql://mysql8-service:3306/spring_hospital"
-        image: "hasathcharuwso2/load_tests:springboot_v1"
+        image: "hasathcharu/balpersist_load_tests:springboot_v1"
         lifecycle:
           preStop:
             exec:

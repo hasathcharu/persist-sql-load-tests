@@ -76,9 +76,8 @@ service / on new http:Listener(9090) {
     }
 
     isolated resource function get appointments() returns db:AppointmentWithRelations[]|error {
-        stream<db:AppointmentWithRelations, persist:Error?> appointments = self.dbClient->/appointments.get();
-        return from db:AppointmentWithRelations appointment in appointments
-            where appointment.status == db:STARTED
-            select appointment;
+        return check from db:AppointmentWithRelations appointment in self.dbClient->/appointments.get(targetType = db:AppointmentWithRelations, whereClause = `status = "STARTED"`)
+        select appointment;
     }
+
 }

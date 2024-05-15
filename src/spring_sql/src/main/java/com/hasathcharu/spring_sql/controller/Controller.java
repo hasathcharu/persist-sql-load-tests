@@ -1,5 +1,8 @@
 package com.hasathcharu.spring_sql.controller;
 
+import com.hasathcharu.spring_sql.dto.AppointmentDTO;
+import com.hasathcharu.spring_sql.dto.DoctorDTO;
+import com.hasathcharu.spring_sql.dto.PatientDTO;
 import com.hasathcharu.spring_sql.model.Appointment;
 import com.hasathcharu.spring_sql.model.Doctor;
 import com.hasathcharu.spring_sql.model.Patient;
@@ -40,17 +43,17 @@ public class Controller {
     }
 
     @GetMapping("/doctors/{id}")
-    public Doctor getDoctorById(@PathVariable String id) {
+    public DoctorDTO getDoctorById(@PathVariable String id) {
         return doctorService.getDoctorById(id);
     }
 
     @GetMapping("/patients")
-    public List<Patient> getAllPatients() {
+    public List<PatientDTO> getAllPatients() {
         return patientService.getAllPatients();
     }
 
     @GetMapping("/appointments")
-    public List<Appointment> getStartedAppointments() {
+    public List<AppointmentDTO> getStartedAppointments() {
         return appointmentService.getStartedAppointments();
     }
 

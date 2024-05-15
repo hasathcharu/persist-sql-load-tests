@@ -1,5 +1,8 @@
 package com.hasathcharu.spring_sql.service;
 
+import com.hasathcharu.spring_sql.dto.AppointmentDTO;
+import com.hasathcharu.spring_sql.dto.DoctorDTO;
+import com.hasathcharu.spring_sql.dto.PatientDTO;
 import com.hasathcharu.spring_sql.model.Appointment;
 import com.hasathcharu.spring_sql.model.AppointmentStatus;
 import com.hasathcharu.spring_sql.repository.AppointmentRepository;
@@ -34,8 +37,28 @@ public class AppointmentService {
         appointmentRepository.save(appointment);
     }
 
-    public List<Appointment> getStartedAppointments() {
-        return appointmentRepository.findAllByStatus(AppointmentStatus.STARTED);
+    public List<AppointmentDTO> getStartedAppointments() {
+        return appointmentRepository.findAllByStatus(AppointmentStatus.STARTED).stream().map(appointment ->
+                AppointmentDTO.builder()
+                    .id(appointment.getId())
+                    .reason(appointment.getReason())
+                    .status(appointment.getStatus())
+                    .doctor(DoctorDTO.builder()
+                        .id(appointment.getDoctor().getId())
+                        .name(appointment.getDoctor().getName())
+                        .phoneNumber(appointment.getDoctor().getPhoneNumber())
+                        .salary(appointment.getDoctor().getSalary())
+                        .specialty(appointment.getDoctor().getSpecialty())
+                        .build())
+                    .patient(PatientDTO.builder()
+                        .idP(appointment.getPatient().getIdP())
+                        .name(appointment.getPatient().getName())
+                        .age(appointment.getPatient().getAge())
+                        .phoneNumber(appointment.getPatient().getPhoneNumber())
+                        .address(appointment.getPatient().getAddress())
+                        .gender(appointment.getPatient().getGender())
+                        .build())
+                    .build()).toList();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.hasathcharu.spring_sql.service;
 
+import com.hasathcharu.spring_sql.dto.PatientDTO;
 import com.hasathcharu.spring_sql.model.Gender;
 import com.hasathcharu.spring_sql.model.Patient;
 import com.hasathcharu.spring_sql.repository.PatientRepository;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @RequiredArgsConstructor
 @Service
@@ -27,7 +30,14 @@ public class PatientService {
         patientRepository.save(patient);
     }
 
-    public List<Patient> getAllPatients() {
-        return patientRepository.findAll();
+    public List<PatientDTO> getAllPatients() {
+        return patientRepository.findAll().stream().map(patient ->
+                PatientDTO.builder()
+                    .idP(patient.getIdP())
+                    .name(patient.getName())
+                    .age(patient.getAge())
+                    .phoneNumber(patient.getPhoneNumber())
+                    .address(patient.getAddress())
+                    .build()).toList();
     }
 }

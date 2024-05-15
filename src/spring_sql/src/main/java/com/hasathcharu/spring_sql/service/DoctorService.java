@@ -1,5 +1,6 @@
 package com.hasathcharu.spring_sql.service;
 
+import com.hasathcharu.spring_sql.dto.DoctorDTO;
 import com.hasathcharu.spring_sql.model.Doctor;
 import com.hasathcharu.spring_sql.repository.DoctorRepository;
 import jakarta.transaction.Transactional;
@@ -23,8 +24,18 @@ public class DoctorService {
         doctorRepository.save(doctor);
     }
 
-    public Doctor getDoctorById(String id) {
-        return doctorRepository.findById(id).orElse(null);
+    public DoctorDTO getDoctorById(String id) {
+        Doctor doctor =  doctorRepository.findById(id).orElse(null);
+        if (doctor == null) {
+            return null;
+        }
+        return DoctorDTO.builder()
+                .id(doctor.getId())
+                .name(doctor.getName())
+                .phoneNumber(doctor.getPhoneNumber())
+                .salary(doctor.getSalary())
+                .specialty(doctor.getSpecialty())
+                .build();
     }
 
 }

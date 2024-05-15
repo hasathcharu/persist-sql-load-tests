@@ -4,7 +4,7 @@ kind: "Service"
 metadata:
   labels:
     app: "load_tests_mysql_persistq"
-  name: "load-tests-mysq"
+  name: "load-tests-mysqlp"
 spec:
   ports:
   - name: "port-1-load-tes"
@@ -28,7 +28,7 @@ kind: "Deployment"
 metadata:
   labels:
     app: "load_tests_mysql_persistq"
-  name: "load-tests-mysq-deployment"
+  name: "load-tests-mysqlp-deployment"
 spec:
   replicas: 1
   selector:
@@ -50,7 +50,7 @@ spec:
               command:
               - "sleep"
               - "15"
-        name: "load-tests-mysq-deployment"
+        name: "load-tests-mysqlp-deployment"
         ports:
         - containerPort: 9093
           name: "port-1-load-tes"
@@ -76,7 +76,7 @@ kind: "HorizontalPodAutoscaler"
 metadata:
   labels:
     app: "load_tests_mysql_persistq"
-  name: "load-tests-mysq"
+  name: "load-tests-mysqlp"
 spec:
   maxReplicas: 1
   metrics:
@@ -90,4 +90,4 @@ spec:
   scaleTargetRef:
     apiVersion: "apps/v1"
     kind: "Deployment"
-    name: "load-tests-mysq-deployment"
+    name: "load-tests-mysqlp-deployment"

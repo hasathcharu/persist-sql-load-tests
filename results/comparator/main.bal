@@ -4,7 +4,7 @@ const MYSQL_DIR = "../MySql";
 const MYSQL_PERSIST_Q_DIR = "../MySqlPersistQ";
 const PERSIST_SQL_DIR = "../Persist.sql";
 const SPRING_BOOT_DIR = "../SpringBoot";
-const COMPARISONS_DIR = "../Comparisons";
+const COMPARISONS_DIR = "../comparisons";
 
 public function main() returns error? {
     string[30][32] comparisons = [[]];

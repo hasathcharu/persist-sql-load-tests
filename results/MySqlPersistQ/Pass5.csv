@@ -1,7 +1,0 @@
-Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
-Insert DB Generated,60,276,259,311,13.36,0.000%,45.66210,5.62,5.80,126.0
-Insert UUID Generated,60,283,261,334,16.08,0.000%,45.90666,5.65,5.78,126.0
-Insert Ungenerated,60,282,262,316,14.10,0.000%,46.94836,5.78,6.92,126.0
-Retrieve One,60,278,258,316,13.68,0.000%,45.48901,11.82,5.60,266.0
-Retrieve Filtered,60,284,264,321,15.16,0.000%,46.01227,347.47,5.71,7733.0
-Retrieve All,60,285,264,329,14.52,0.000%,46.08295,300.21,5.54,6671.0

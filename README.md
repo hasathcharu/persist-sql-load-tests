@@ -1,4 +1,4 @@
-# Comparison of `persist.sql` load performance with Ballerina `mysql` connector and Spring Boot
+# Comparison of `Bal Persist` load performance with Ballerina `mysql` connector and Spring Boot
 
 ## Test Configuration
 
@@ -6,7 +6,7 @@
 Free tier configuration, ie, the `t2.micro` class (1 vCPU, 1GB RAM) in the `ap-south-1` region. 
 Following docker images were used for each test.
 
-- Persist.sql - `docker.io/hasathcharu/balpersist_load_tests:persist_v2`
+- Bal Persist - `docker.io/hasathcharu/balpersist_load_tests:persist_v2`
 - MySql - `docker.io/hasathcharu/balpersist_load_tests:mysql_v1`
 - Spring Boot `docker.io/hasathcharu/balpersist_load_tests:springboot_v2`
 

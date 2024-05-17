@@ -24,6 +24,6 @@ A MySql instance with a `db.t3.micro` (2 vCPU, 1GB RAM) class. This is a managed
 
 ![Std. Deviation in Response Time Chart](./results/comparisons/Std.%20Deviation%20in%20Response%20Time%20(60%20users_second).svg)
 
-## Average Throughput
+## Throughput
 
-![Average Throughput Chart](./results/comparisons/Average%20Throughput%20(60%20users_second).svg)
+![Throughput Chart](./results/comparisons/Throughput%20(60%20users_second).svg)

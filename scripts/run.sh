@@ -1,3 +1,3 @@
-#!/bin/zsh -e
+#!/bin/bash -e
 set -e
 jmeter -n -t ./Test\ Plan.jmx -Jtype="$TEST_TYPE" -Jhost=13.126.1.187

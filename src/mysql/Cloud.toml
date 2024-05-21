@@ -1,7 +1,7 @@
 [container.image]
 repository = "hasathcharu"
 name = "balpersist_load_tests"
-tag = "mysql_v1"
+tag = "mysql_v2"
 
 [cloud.deployment]
 min_memory = "256Mi"

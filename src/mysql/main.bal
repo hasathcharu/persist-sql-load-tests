@@ -10,6 +10,47 @@ configurable string password = ?;
 configurable string database = ?;
 configurable int port = ?;
 
+enum Gender {
+    MALE,
+    FEMALE
+}
+
+enum Status {
+    STARTED,
+    SCHEDULED,
+    ENDED
+}
+type Doctor record {|
+    readonly string id;
+    string name;
+    string specialty;
+    @sql:Column{name:"phone_number"}
+    string phoneNumber;
+    decimal salary;
+|};
+
+type Patient record {|
+    @sql:Column {name: "ID_P"}
+    readonly int idP;
+    string name;
+    string phoneNumber;
+    int age;
+    @sql:Column {name: "ADDRESS"}
+    string address;
+    Gender gender;
+|};
+
+type Appointment record {|
+    readonly int id;
+    string doctorId;
+    @sql:Column{name:"patient_id"}
+    int patientId;
+    string reason;
+    Status status;
+    Patient patient;
+    Doctor doctor;
+|};
+
 service / on new http:Listener(9090) {
     
     private final mysql:Client dbClient;
@@ -58,26 +99,42 @@ service / on new http:Listener(9090) {
         return http:CREATED;
     }
     
-    isolated resource function get doctors/[string id]() returns record {|anydata...;|}|error{
+    isolated resource function get doctors/[string id]() returns Doctor|error{
         sql:ParameterizedQuery query = `SELECT * FROM Doctor WHERE id = ${id}`;
-        record {|anydata...;|} result = check self.dbClient->queryRow(query);
+        Doctor result = check self.dbClient->queryRow(query);
         return result;
     }
 
-    isolated resource function get patients() returns record {|anydata...;|}[]|error {
+    isolated resource function get patients() returns Patient[]|error {
         sql:ParameterizedQuery query = `SELECT * FROM patients`;
-        stream<record {|anydata...;|}, sql:Error?> result = self.dbClient->query(query);
-        return from var patient in result select patient;
+        stream<Patient, sql:Error?> result = self.dbClient->query(query);
+        return from Patient patient in result select patient;
     }
 
-    isolated resource function get appointments() returns record {|anydata...;|}[]|error {
+    isolated resource function get appointments() returns Appointment[]|error {
         sql:ParameterizedQuery query = `
-        SELECT * 
-        FROM appointment INNER JOIN patients ON appointment.patient_id = patients.ID_P 
+        SELECT 
+            appointment.id, 
+            appointment.reason, 
+            appointment.status, 
+            appointment.patient_id, 
+            appointment.doctorId, 
+            Patient.ID_P as "Patient.ID_P", 
+            Patient.name as "Patient.name", 
+            Patient.phoneNumber as "Patient.phoneNumber", 
+            Patient.age as "Patient.age", 
+            Patient.ADDRESS as "Patient.ADDRESS",
+            Patient.gender as "Patient.gender",
+            Doctor.id as "Doctor.id",
+            Doctor.name as "Doctor.name",
+            Doctor.specialty as "Doctor.specialty",
+            Doctor.phone_number as "Doctor.phone_number",
+            Doctor.salary as "Doctor.salary"
+        FROM appointment INNER JOIN patients Patient ON appointment.patient_id = Patient.ID_P 
         INNER JOIN Doctor ON appointment.doctorId = Doctor.id 
         WHERE appointment.status = "STARTED"`;
-        stream<record {|anydata...;|}, sql:Error?> result = self.dbClient->query(query);
-        return from var appointment in result select appointment;
+        stream<Appointment, sql:Error?> result = self.dbClient->query(query);
+        return from Appointment appointment in result select appointment;
     }
 
 }

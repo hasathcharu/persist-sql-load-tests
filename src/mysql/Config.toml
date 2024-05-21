@@ -1,5 +1,5 @@
-host = "mysql8-service"
-port = 3306
+host = "localhost"
+port = 3300
 username = "root"
 password = "Test123#"
 database = "hospital"

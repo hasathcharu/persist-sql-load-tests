@@ -1,7 +1,7 @@
 #!/bin/bash -e
-sudo yum update -y
-sudo yum install git -y
-sudo yum install java-17-amazon-corretto-devel
+yum update -y
+yum install git -y
+yum install java-17-amazon-corretto-devel -y
 cd ~
 wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
 JMETER_DIR="~/apache-jmeter-5.6.3/bin"

@@ -1,3 +1,0 @@
-resources:
-  - load_tests_mysql_persistq.yaml
-  - mysql_deployment.yml

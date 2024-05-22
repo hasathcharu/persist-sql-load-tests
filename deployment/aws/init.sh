@@ -32,4 +32,3 @@ case $1 in
 esac
 
 echo "Docker container for $1 started successfully."
-

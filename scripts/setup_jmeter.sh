@@ -16,3 +16,5 @@ else
 fi
 
 git clone https://github.com/hasathcharu/persist-sql-load-tests $USER_DIR/persist-sql-load-tests
+
+chown -R ec2-user:ec2-user $USER_DIR

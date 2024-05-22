@@ -1,0 +1,6 @@
+[load_tests.db]
+host = "persist-db.czyqygwyas3p.ap-south-1.rds.amazonaws.com"
+port = 3306
+user = "root"
+password = "Test123#"
+database = "hospital"

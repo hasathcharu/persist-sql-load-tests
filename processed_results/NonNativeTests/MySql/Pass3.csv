@@ -1,0 +1,3 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Retrieve All,60,5190,1500,8366,2256.42,0.000%,6.67631,2127.92,0.80,326377.0
+TOTAL,60,5190,1500,8366,2256.42,0.000%,6.67631,2127.92,0.80,326377.0

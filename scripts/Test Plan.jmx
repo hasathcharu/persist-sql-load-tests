@@ -9,7 +9,7 @@
       <boolProp name="TestPlan.functional_mode">false</boolProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Insert DB Generated" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Insert DB Generated">
         <stringProp name="ThreadGroup.num_threads">${users}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${ramp_up}</stringProp>
         <stringProp name="ThreadGroup.duration">${duration}</stringProp>
@@ -158,7 +158,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Retrieve All">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Retrieve All" enabled="false">
         <stringProp name="ThreadGroup.num_threads">${users}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${ramp_up}</stringProp>
         <stringProp name="ThreadGroup.duration">${duration}</stringProp>
@@ -224,7 +224,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -265,17 +265,17 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="users" elementType="Argument">
             <stringProp name="Argument.name">users</stringProp>
-            <stringProp name="Argument.value">${__P(users, 50)}</stringProp>
+            <stringProp name="Argument.value">${__P(users, 1098)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ramp_up" elementType="Argument">
             <stringProp name="Argument.name">ramp_up</stringProp>
-            <stringProp name="Argument.value">${__P(rampUp, 1)}</stringProp>
+            <stringProp name="Argument.value">${__P(rampUp, 50)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="duration" elementType="Argument">
             <stringProp name="Argument.name">duration</stringProp>
-            <stringProp name="Argument.value">${__P(duration, 15)}</stringProp>
+            <stringProp name="Argument.value">${__P(duration, 60)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="startup_delay" elementType="Argument">
@@ -285,12 +285,12 @@
           </elementProp>
           <elementProp name="service_port" elementType="Argument">
             <stringProp name="Argument.name">service_port</stringProp>
-            <stringProp name="Argument.value">${__P(port, 9090)}</stringProp>
+            <stringProp name="Argument.value">${__P(port, 80)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="service_host" elementType="Argument">
             <stringProp name="Argument.name">service_host</stringProp>
-            <stringProp name="Argument.value">${__P(host, localhost)}</stringProp>
+            <stringProp name="Argument.value">${__P(host, 13.234.78.235)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc"></stringProp>
           </elementProp>
